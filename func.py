@@ -1,10 +1,13 @@
-
-
-def BMI(wheight,height):
-    bmi = wheight/((height/100)**2)
+def BMI(weight,height):
+    bmi = weight / ((height/100)**2)
     return bmi
 
-wheight = float(input("your weight = "))
-height = float(input("how much your thall = "))
-print("your BMI is",BMI(wheight,height))
-    
+print("what you what bro (bmi)")
+Ft_select = str(input(" : "))
+
+if Ft_select == "bmi":
+    print("user what to use BMI function")
+
+weight = float(input("how much your weight = "))
+height = float(input("how your thall = "))
+print("your BMI is :",BMI(weight,height))
