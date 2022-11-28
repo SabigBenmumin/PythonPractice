@@ -33,10 +33,12 @@ def delete_school_data(data):
 
     with open('first_edit.csv','w',encoding='utf-8',newline='\n') as outfile:
         csvwriter = csv.writer(outfile)
-        for row in data:
-            if row[0] != printed[int(selected_school_ID)-1]:
-                if row[2] != level_name:
-                    csvwriter.writerow(row) 
+        csvwriter.writerow(data[0])
+        for row in data[1:]:
+            if row[0] == printed[int(selected_school_ID)-1] & row[2] != level_name:
+                csvwriter.writerow(row)
+            elif row[0] != printed[int(selected_school_ID)-1]:
+                csvwriter.writerow(row)
 
 def search_school_data(data):
     list_school_name = []
@@ -75,9 +77,11 @@ def search_school_data(data):
     selected_religion_ID = input("select religion ID: ")
     print(f"ศาสนา{list_religion[int(selected_religion_ID)-1]} มีผู้นับถือ {school_by_select_data[int(selected_religion_ID)-1][4]} คน")
 
-
 def conclude_school_data(data):
-    ...
+    print(id(data))
+    for school in data:
+        print(school)
+    
 
 def main():
 
