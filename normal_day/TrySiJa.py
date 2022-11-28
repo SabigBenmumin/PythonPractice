@@ -1,4 +1,5 @@
-import os
+i
+port os
 from math import cos, sin
 import pygame
 import colorsys
