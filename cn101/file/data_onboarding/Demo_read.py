@@ -1,5 +1,9 @@
 import csv
 import random
+
+#kuay
+
+
 #read file
 def read_data(file_name):
     with open(file_name,mode="r") as f:
