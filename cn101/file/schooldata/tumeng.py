@@ -1,9 +1,42 @@
 import csv
+
 def add_school_data(data):
     ...
 
-def delete_school_data(data):
-    ...
+def delete_school_data(data): 
+    list_school_name = []
+    N = 1
+    printed = []
+    for row in data[1:]:
+        list_school_name.append(row[0])
+        if row[0] not in printed:
+            print(f"{N}. {row[0]}")
+            printed.append(row[0])
+            N += 1
+    selected_school_ID = input("Input school id: ")
+    
+    print("Please select level name:")
+    print("M1,M2,M3,M4,M5,M6")
+    level_name = input("Input level name: ")
+    school_by_select_data = []
+    for row in data[1:]:
+        if row[0] == printed[int(selected_school_ID)-1]:
+            if row[2] == level_name:
+                school_by_select_data.append(row)
+    '''
+    school_by_select_data geb list nei wai
+    [['โรงเรียนปทุมวิไล', 'คริสต์', 'M1', '2565/1', '3'],
+     ['โรงเรียนปทุมวิไล', 'พุทธ', 'M1', '2565/1', '597'],
+     ['โรงเรียนปทุมวิไล', 'อิสลาม', 'M1', '2565/1', '7'],
+     ['โรงเรียนปทุมวิไล', 'อื่นๆ', 'M1', '2565/1', '1']]
+    '''
+
+    with open('first_edit.csv','w',encoding='utf-8',newline='\n') as outfile:
+        csvwriter = csv.writer(outfile)
+        for row in data:
+            if row[0] != printed[int(selected_school_ID)-1]:
+                if row[2] != level_name:
+                    csvwriter.writerow(row) 
 
 def search_school_data(data):
     list_school_name = []
