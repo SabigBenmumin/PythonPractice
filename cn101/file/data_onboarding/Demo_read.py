@@ -8,6 +8,19 @@ def read_data(file_name):
         data = [row for row in reader]
         return data
 
+def list_colum(data):
+    print("\nPress number[1-8] for select colum")
+    N = 1
+    for col in data[0]: 
+        print(f"{N}. {col}")
+        N += 1
+    colum = input("What colum: ")
+    list_data_incolum = []
+    for row in data:
+        list_data_incolum.append(row[int(colum)-1])
+        print(row[int(colum)-1])
+    print(list_data_incolum)
+
 #read_data()
 def read_from_username(data):
     username = input("Enter your username for search your info: ")
@@ -85,11 +98,12 @@ def main():
     print("please press your choise [1-3]")
     print("1. search user info by username")
     print("2. write info for new user")
-    print("3. delete user")
+    print("3. print data by colum")
+    print("4. delete user")
     choise = input("your choise: ")
     if choise == '1':
         read_from_username(data)
-    if choise == '2':
+    elif choise == '2':
         result = write_user(data)
         with open(file_name,"a",newline="\n") as csvfile:
             writer = csv.writer(csvfile)
@@ -101,5 +115,8 @@ def main():
         print(f"Last name: {result[-3]}")
         print(f"Department: {result[-2]}")
         print(f"Location: {result[-1]}")
+    elif choise == '3':
+        list_colum(data)
+
 
 main()
