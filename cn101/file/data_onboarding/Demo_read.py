@@ -1,5 +1,6 @@
 import csv
 import random
+
 #read file
 def read_data(file_name):
     with open(file_name,mode="r") as f:
@@ -9,7 +10,7 @@ def read_data(file_name):
 
 #read_data()
 def read_from_username(data):
-    username = input("Enter your user name for search your info: ")
+    username = input("Enter your username for search your info: ")
     for row in data:
         if row[0] == username:
             print(f"Name: {row[4]} {row[5]}")
@@ -93,6 +94,12 @@ def main():
         with open(file_name,"a",newline="\n") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(result)
-
+        print("\nupdate data")
+        print(f"Username: {result[0]}")
+        print(f"ID: {result[1]}")
+        print(f"First name: {result[-4]}")
+        print(f"Last name: {result[-3]}")
+        print(f"Department: {result[-2]}")
+        print(f"Location: {result[-1]}")
 
 main()
