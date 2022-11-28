@@ -1,17 +1,13 @@
 import csv
 import random
-
-#kuay
-
-
 #read file
 def read_data(file_name):
     with open(file_name,mode="r") as f:
         reader = csv.reader(f,delimiter=',')
         data = [row for row in reader]
         return data
-#read_data()
 
+#read_data()
 def read_from_username(data):
     username = input("Enter your user name for search your info: ")
     for row in data:
